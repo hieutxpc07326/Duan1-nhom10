@@ -31,7 +31,6 @@ class category
  //hàm cập nhập dữ liệu
 
 
-
  public function countCate(){
      $db = new connect();
      $sql = "SELECT COUNT(categoryID) AS countCate FROM categories";
