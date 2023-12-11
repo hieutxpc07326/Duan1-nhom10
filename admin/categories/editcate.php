@@ -22,3 +22,4 @@ if (isset($_POST['editcate'])) {
         <button name="editcate" class="btn btn-primary">Save</button>
     </form>
 </div>
+

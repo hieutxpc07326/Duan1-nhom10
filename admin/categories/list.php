@@ -31,7 +31,7 @@
                             <a href="?act=editcate&id=<? echo $row['categoryID']?>"><button type="button" class="btn btn-success">Edit</button></a></td>
                         </tr>
                
-               
+            
                     <?php } ?>
                 </tbody>
             </table>

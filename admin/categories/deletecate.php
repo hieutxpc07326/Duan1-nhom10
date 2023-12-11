@@ -10,4 +10,3 @@ if ($delete['success']) {
 }
 echo "<script>document.location='?act=list';</script>";
 ?>
-
