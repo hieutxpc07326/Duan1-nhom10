@@ -18,7 +18,7 @@
       <a class="nav-link" href="?act=home">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
-      </a>
+    </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="?act=list">

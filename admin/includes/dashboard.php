@@ -28,7 +28,7 @@ foreach ($countCate  as $cates) { ?>
           <h2 class="mb-5">  <?=$cates['countCate'];?> </h2>
         </div>
       </div>
-    </div>
+   </div>
 <?php } ?>
 <?php
 $db = new Products();
