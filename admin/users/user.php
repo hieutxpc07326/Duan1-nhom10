@@ -85,7 +85,6 @@ class User
         return $result;
     }
 
-
     public function deleteUser($id)
     {
         $db = new connect();
