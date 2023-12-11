@@ -1,3 +1,30 @@
+<?php 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $image = $_FILES['image']['name'];
+    $description = $_POST['description'];
+    $category_ID = $_POST['category_ID'];
+    $discount = $_POST['discount'];
+
+    if(empty($name)){
+        $errorName = "Vui lòng nhập tên sản phẩm";
+    }
+    if(empty($price) || is_numeric($price)){
+        $errorPrice = "Vui lòng nhập số";
+    }
+    if(empty($image)){
+        $errorImage = "Vui lòng thêm hình ảnh";
+    }
+    if(empty($description)){
+        $errorDesc = "Vui lòng nhập mô tả sản phẩm";
+    }
+    if(empty($category_ID)){
+        $errorCate = "Vui lòng chọn danh mục sản phẩm";
+    }
+   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,25 +43,41 @@
                 <label for="name">Name:</label>
                 <br>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Tên sản phẩm " >
-                <span class="error"></span>
+                <?php 
+            if(!empty($errorName)){
+                echo '<p style="color:red;">'.$errorName.'</p>';
+            }
+            ?>
             </div>
             <div class="">
                 <label for="price">Price:</label>
                 <br>
                 <input type="number" class="form-control" id="price" name="price" placeholder="Giá ">
-                <span  class="error"></span>
+                <?php 
+            if(!empty($errorPrice)){
+                echo '<p style="color:red;">'.$errorPrice.'</p>';
+            }
+            ?>
             </div>
             <div class="">
                 <label for="image">Image:</label>
                 <br>
                 <input type="file" class="form-control" id="image" name="image" >
-                <span class="error"></span>
+                <?php 
+            if(!empty($errorImage)){
+                echo '<p style="color:red;">'.$errorImage.'</p>';
+            }
+            ?>
             </div>
             <div class="">
                 <label for="description">Description:</label>
                 <br>
                 <textarea class="form-control" id="description" name="description" rows="4" ></textarea>
-                <span class="error"></span>
+                <?php 
+            if(!empty($errorDesc)){
+                echo '<p style="color:red;">'.$errorDesc.'</p>';
+            }
+            ?>
             </div>
             <div class="">
                 <label for="category_ID">Category:</label>
@@ -43,9 +86,8 @@
                 <?php
                 $dbCate = new Category();
                 $rows = $dbCate->getList();
-                foreach ($rows as $row) { ?>
+foreach ($rows as $row) { ?>
                     <option value="<? echo $row['categoryID'] ?>"><? echo $row['categoryName'] ?></option>
-                    <span  class="error"></span>
                 <?php } ?>
                 </select>
             </div>
@@ -53,7 +95,6 @@
                 <label for="discount">Discount:</label>
                 <br>
                 <input type="number" class="form-control" id="discount" name="discount" >
-                <span  class="error"></span>
             </div>
             <button type="submit" class="btn btn-primary" name="addProduct">Add Product</button>
         </form>
@@ -72,18 +113,17 @@ if (isset($_POST['addProduct'])) {
     $description = $_POST['description'];
     $category_ID = $_POST['category_ID'];
     $discount = $_POST['discount'];
-    $errors = [];
-
+    $errors = []; 
+    // Thực hiện thêm sản phẩm
     $db = new Products();
     $result = $db->add($name, $price, $image, $description, $category_ID, $discount);
-  
+
+    // Upload hình ảnh
     move_uploaded_file($image_tmp, '../images/' . $image);
-    
-    
   
+
+    // Chuyển hướng sau khi thêm
 
 } 
 
 ?>
-
-
