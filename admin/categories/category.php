@@ -8,7 +8,6 @@ class category
  var $status = null;
  var $update = null;
 
-
  // hàm lấy tất cả dữ liệu của bảng Categoris
  public function getList() {
      $db = new connect();

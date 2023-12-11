@@ -12,7 +12,6 @@
         </div>
         <button name="addCate" class="btn btn-primary">Add</button>
         <br>
-
     </form>
 </div>
 <?php
