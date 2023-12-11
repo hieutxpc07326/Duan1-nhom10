@@ -30,7 +30,6 @@ foreach ($countCate  as $cates) { ?>
       </div>
     </div>
 <?php } ?>
-
 <?php
 $db = new Products();
 $Countpro = $db->Countpro();
